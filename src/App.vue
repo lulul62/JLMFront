@@ -12,6 +12,7 @@
           value="true"
           v-for="(item, i) in items"
           :key="i"
+          :href="item.href"
         >
           <v-list-tile-action>
             <v-icon light v-html="item.icon"></v-icon>
@@ -62,9 +63,9 @@
         drawer: false,
         fixed: false,
         items: [
-          { icon: 'directions_run', title: 'Carte des évenements', href : "/map" },
-           { icon: 'add_location', title: 'Créer mon évenement', href : "/createEvent" },
-            { icon: 'account_circle', title: 'Mon profil', href : "/profil" },
+          { icon: 'directions_run', title: 'Carte des évenements', href : "/map",  action: 'link'},
+           { icon: 'add_location', title: 'Créer mon évenement', href : "/event", action: 'link'},
+            { icon: 'account_circle', title: 'Mon profil', href : "/profil", action: 'link'},
         ],
         miniVariant: false,
         right: true,
