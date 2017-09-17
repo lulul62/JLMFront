@@ -8,12 +8,12 @@ Vue.use(Router);
 export default new Router({
     routes: [
         {
-            path: '/',
-            name: 'Map',
+            path: '/map',
+            name: '',
             component: Map
         },
         {
-            path: '/createEvent',
+            path: '/event',
             name: 'Event',
             component: Event
         }

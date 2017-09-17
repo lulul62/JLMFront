@@ -63,9 +63,9 @@
         drawer: false,
         fixed: false,
         items: [
-          { icon: 'directions_run', title: 'Carte des évenements', href : "/map",  action: 'link'},
-           { icon: 'add_location', title: 'Créer mon évenement', href : "/event", action: 'link'},
-            { icon: 'account_circle', title: 'Mon profil', href : "/profil", action: 'link'},
+          { icon: 'directions_run', title: 'Carte des évenements', href : "/#/map",  action: 'link'},
+           { icon: 'add_location', title: 'Créer mon évenement', href : "/#/event", action: 'link'},
+            { icon: 'account_circle', title: 'Mon profil', href : "#", action: 'link'},
         ],
         miniVariant: false,
         right: true,
