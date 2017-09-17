@@ -25,7 +25,7 @@ export default {
     },
 
     /**
-     * Récupere les URLS nécessaires au controleur. 
+     * Récupere les URLS nécessaires au controleur.
      */
     getConfig() {
       return this.$http.get("static/conf.json").then(conf=>{
@@ -61,6 +61,3 @@ body,
   width: 100vw;
 }
 </style>
-
-
-
