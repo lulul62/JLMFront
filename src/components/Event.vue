@@ -1,45 +1,40 @@
 <template>
     <div class="event">
         <div id="event">
-            <template>
-                <v-form v-model="valid">
-                    <v-text-field
-                            label="Name"
-                            v-model="name"
-                            :rules="nameRules"
-                            :counter="10"
-                            required
-                    ></v-text-field>
-                    <v-text-field
-                            label="E-mail"
-                            v-model="email"
-                            :rules="emailRules"
-                            required
-                    ></v-text-field>
-                </v-form>
-            </template>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nom de l'événement</th>
+                    <th>Description de l'évenement</th>
+                    <th>Création de l'évenement</th>
+                </tr>
+                </thead>
+                <tbody>
+            <tr>
+                <td>{{ events[0].title }}</td>
+                <td>{{ events[0].description }}</td>
+                <td>{{ events[0].createdAt }}</td>
+            </tr>
+            </tbody>
+            </table>
         </div>
     </div>
 </template>
 
-
 <script defer>
-    export default {
-        name: 'event',
-        data () {
-            return {
-                valid: false,
-                name: '',
-                nameRules: [
-                    (v) => !!v || 'Name is required',
-                    (v) => v.length <= 10 || 'Name must be less than 10 characters'
-                ],
-                email: '',
-                emailRules: [
-                    (v) => !!v || 'E-mail is required',
-                    (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
-                ]
-            }
+export default {
+    data() {
+        return {
+            events: []
         }
+    },
+    mounted () {
+        this.$http.get('http://apievents.herokuapp.com/events').then(response => {
+            this.events = response.data;
+            console.log(response.data);
+        }, response => {
+            console.log('erreur', response)
+        });
     }
+}
 </script>
